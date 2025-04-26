@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateToken = generateToken;
 exports.verifyToken = verifyToken;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const SECRET_KEY = 'your_secret_key';
+const SECRET_KEY = 'key_safe_and_secret';
 function generateToken(payload) {
     return jsonwebtoken_1.default.sign(payload, SECRET_KEY, { expiresIn: '1h' });
 }
