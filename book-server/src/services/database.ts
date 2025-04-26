@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise';
 
 export const pool = mysql.createPool({
   host: 'localhost',    
-  user: 'tu_usuario',   
+  user: 'root',   
   password: 'tu_contraseña',
   database: 'book-roomDB',  
   waitForConnections: true,
