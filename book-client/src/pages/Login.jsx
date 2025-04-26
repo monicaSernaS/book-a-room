@@ -18,6 +18,7 @@ export default function Login() {
     try {
       const data = await loginUser({ email, password });
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userName", data.user.name);
       alert("✅ Login exitoso");
      
     } catch (err) {
