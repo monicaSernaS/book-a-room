@@ -29,7 +29,7 @@ export const createReservation = async (req: any, res: Response) => {
     res.status(201).json({ message: '✅Reservation created successfully' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: '❌ Server error while creating reservation' });
+    res.status(500).json({ message: '❌ Server error while creating reservation 🤷🏻‍♀️' });
   }
 };
 
