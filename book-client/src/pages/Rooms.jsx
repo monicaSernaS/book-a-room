@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
-import { getRooms } from "../services/roomService";
+import { getRooms, createReservation } from "../services/roomService";
 
 export default function Rooms() {
   const [rooms, setRooms] = useState([]);
@@ -21,6 +21,19 @@ export default function Rooms() {
     fetchRooms();
   }, []);
 
+  const handleReserve = async (roomId) => {
+    const confirmReservation = window.confirm("¿Deseas reservar esta sala?");
+    if (!confirmReservation) return;
+
+    try {
+      await createReservation(roomId);
+      alert("✅ Reserva realizada exitosamente.");
+    } catch (error) {
+      console.error(error);
+      alert("❌ Error al reservar. Asegúrate de estar logueado.");
+    }
+  };
+
   if (loading) return <Loader />;
 
   return (
@@ -35,6 +48,12 @@ export default function Rooms() {
                   <h5 className="card-title">{room.name}</h5>
                   <p className="card-text">{room.description}</p>
                   <p className="card-text"><strong>Capacidad:</strong> {room.capacity} personas</p>
+                  <button
+                    className="btn btn-success w-100 mt-2"
+                    onClick={() => handleReserve(room.id)}
+                  >
+                    Reservar
+                  </button>
                 </div>
               </div>
             </div>

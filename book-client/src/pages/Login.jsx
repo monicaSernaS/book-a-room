@@ -16,9 +16,10 @@ export default function Login() {
     setError("");
 
     try {
-      await loginUser({ email, password });
+      const data = await loginUser({ email, password });
+      localStorage.setItem("token", data.token);
       alert("✅ Login exitoso");
-      // Luego puedes redirigir a /rooms si quieres
+     
     } catch (err) {
       console.error(err);
       setError("Login fallido. Verifica tus credenciales.");
