@@ -1,1 +1,19 @@
 .qodo
+# Node modules backend
+book-server/node_modules/
+
+# Node modules frontend
+book-client/node_modules/
+
+# Env files
+*.env
+
+# Firebase local
+.firebase/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# VSC settings
+.vscode/
